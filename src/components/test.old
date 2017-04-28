@@ -1,0 +1,12 @@
+<div id="container">
+    <div class="row">
+    <div v-for="ssMenu in cardSsMenuDatas1" v-bind:class="ssMenu.style">
+        <v-card :item="ssMenu" ></v-card>
+    </div>
+    </div>
+    <div class="row">
+    <div v-for="ssMenu in cardSsMenuDatas2" v-bind:class="ssMenu.style">
+        <v-card :item="ssMenu"></v-card>
+    </div>
+    </div>
+</div>
