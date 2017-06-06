@@ -3,17 +3,17 @@
         <h4>Créer une alerte</h4>
         <div class="form-group">
             <label for="libelle">Libellé:</label>
-            <input type="text" class="form-control" id="libelle" placeholder="libelle" v-model="libelle">
+            <input type="text" class="form-control" id="libelle" placeholder="libelle" v-model="alerte.Libelle">
         </div>
         <div class="form-group">
             <label for="commentaire">Commentaire: </label>
-            <textarea class="form-control" id="commentaire" placeholder="Commentaire" v-model="commentaire"></textarea>
+            <textarea class="form-control" id="commentaire" placeholder="Commentaire" v-model="alerte.Commentaire"></textarea>
         </div>
         <div class="form-group">
             <label for="nomRq">Nom RQ: </label>
-            <input type="text" class="form-control" id="nomRq" placeholder="nomRq" v-model="nomRq">
+            <input type="text" class="form-control" id="nomRq" placeholder="nomRq" v-model="alerte.NomRq">
         </div>
-        <button type="submit" class="btn btn-default">Créer</button>
+        <button @click="creerAlerte" type="button" class="pull-right btn btn-primary" aria-label="Créer">Créer</button>
     </form>
 </template>
 
@@ -23,19 +23,33 @@ export default {
     name: 'creaAlert',
     data() {
         return {
-            libelle: '',
-            commentaire: '',
-            nomRq: ''
+            alerte: {
+                Libelle: '',
+                Commentaire: '',
+                NomRq: ''
+            }
+        }
+    },
+    methods: {
+        creerAlerte: function () {
+            axios.post('http://localhost:57335/api/' + 'Alertes', this.alerte).then(response => {
+                if (response.status === 201) {
+                    alert("record ok")
+                }
+            })
         }
     }
 }
 </script>
 
 <style scoped>
-    form{
-        margin: auto;
-        width: 70%;
-    }
-    label{ float:left;}
+form {
+    margin: auto;
+    width: 70%;
+}
+
+label {
+    float: left;
+}
 </style>
 

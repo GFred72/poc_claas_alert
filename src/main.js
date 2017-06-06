@@ -7,6 +7,7 @@ import Router from './Router'
 import 'vue-awesome/icons'
 import Icon from 'vue-awesome/components/Icon'
 
+window.axios = require('axios');
 window.jQuery = window.$ = require('jquery')
 
 require('../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss')
